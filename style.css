@@ -1,0 +1,386 @@
+/* =========================
+   GENERAL
+========================= */
+@font-face {
+    font-family: "Ardent";
+    src: url("Ardent.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Libre Baskerville", Georgia, serif;
+    background: #f8f5ed;
+    color: #403c35;
+    line-height: 1.7;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 28px;
+
+    padding: 12px 25px;
+    background: rgba(248, 245, 237, 0.94);
+
+    border: 1px solid #d9d2c2;
+    border-radius: 30px;
+
+    box-shadow: 0 5px 20px rgba(70, 60, 45, 0.08);
+
+    z-index: 100;
+}
+
+nav a {
+    text-decoration: none;
+    color: #554d42;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: #c8753d;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+header {
+    min-height: 92vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 100px 30px 60px;
+
+    position: relative;
+}
+
+
+/* Decorative shapes */
+
+header::before {
+    content: "";
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    background: #dce9dc;
+
+    border-radius: 50%;
+
+    top: 15%;
+    left: 8%;
+
+    opacity: 0.65;
+
+    z-index: -1;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+
+    width: 140px;
+    height: 140px;
+
+    background: #d9e5ec;
+
+    border-radius: 50%;
+
+    bottom: 12%;
+    right: 10%;
+
+    opacity: 0.7;
+
+    z-index: -1;
+}
+
+
+/* =========================
+   PROFILE PHOTO
+========================= */
+
+.profile-photo {
+    width: 175px;
+    height: 175px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid #f8f5ed;
+
+    box-shadow:
+        0 8px 25px rgba(70, 60, 45, 0.15);
+
+    margin-bottom: 28px;
+}
+
+
+/* =========================
+   HERO TEXT
+========================= */
+
+header h1 {
+    font-family: "Ardent", Georgia, serif;
+
+    font-size: clamp(3rem, 7vw, 5rem);
+
+    letter-spacing: 2px;
+
+    color: #4b443a;
+
+    margin-bottom: 15px;
+}
+
+header p {
+    max-width: 600px;
+
+    font-size: 1.15rem;
+
+    color: #71695d;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons {
+    display: flex;
+    gap: 14px;
+
+    margin-top: 30px;
+}
+
+.buttons a {
+    text-decoration: none;
+
+    padding: 12px 24px;
+
+    border-radius: 8px;
+
+    background: #8fae91;
+    color: white;
+
+    font-weight: 600;
+
+    transition: all 0.25s ease;
+
+    box-shadow: 0 4px 12px rgba(70, 90, 70, 0.15);
+}
+
+.buttons a:hover {
+    transform: translateY(-3px);
+
+    background: #789a7b;
+
+    box-shadow: 0 8px 18px rgba(70, 90, 70, 0.2);
+}
+
+.buttons a:last-child {
+    background: #d9e5ec;
+
+    color: #4e6570;
+
+    box-shadow: none;
+}
+
+.buttons a:last-child:hover {
+    background: #c9dce5;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+main {
+    max-width: 950px;
+
+    margin: auto;
+
+    padding: 70px 30px;
+}
+
+section {
+    margin-bottom: 120px;
+}
+
+
+/* =========================
+   SECTION HEADINGS
+========================= */
+h2 {
+    font-family: "Ardent", Georgia, serif;
+
+    font-size: 2.3rem;
+
+    color: #4b443a;
+
+    margin-bottom: 35px;
+}
+
+
+/* Small orange accent */
+
+h2::after {
+    content: "";
+
+    display: block;
+
+    width: 45px;
+    height: 4px;
+
+    margin-top: 10px;
+
+    background: #d8894d;
+
+    border-radius: 10px;
+}
+
+
+/* =========================
+   PROJECT CARDS
+========================= */
+
+.project {
+    background: #fffdf8;
+
+    padding: 30px;
+
+    margin-bottom: 20px;
+
+    border-radius: 14px;
+
+    border: 1px solid #ded8ca;
+
+    box-shadow:
+        0 5px 15px rgba(70, 60, 45, 0.05);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 25px rgba(70, 60, 45, 0.1);
+}
+
+.project h3 {
+    font-family: "Ardent", Georgia, serif;
+
+    font-size: 1.5rem;
+
+    color: #587a60;
+
+    margin-bottom: 8px;
+}
+
+.project p {
+    color: #71695d;
+}
+
+
+/* =========================
+   ABOUT SECTION
+========================= */
+
+#about {
+    background: #e4eee4;
+
+    padding: 55px;
+
+    border-radius: 18px;
+
+    border: 1px solid #cbdccf;
+}
+
+#about h2 {
+    color: #4f6654;
+}
+
+#about p {
+    max-width: 680px;
+
+    color: #5f625a;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    nav {
+        width: 92%;
+
+        justify-content: center;
+
+        gap: 15px;
+
+        padding: 11px 15px;
+    }
+
+    nav a {
+        font-size: 0.75rem;
+    }
+
+    header {
+        padding-top: 110px;
+    }
+
+    header h1 {
+        font-size: 2.8rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .profile-photo {
+        width: 140px;
+        height: 140px;
+    }
+
+    .buttons {
+        flex-direction: column;
+
+        width: 210px;
+    }
+
+    #about {
+        padding: 35px 25px;
+    }
+}
