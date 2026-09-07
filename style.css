@@ -1,16 +1,45 @@
-/* =========================
-   GENERAL
-========================= */
+/* ================================
+   aditi kumar — personal website
+   typewriter / indie academic theme
+   ================================ */
+
+/* ---------- fonts ---------- */
+
+
 @font-face {
-    font-family: "Ardent";
-    src: url("Ardent.otf") format("opentype");
+    font-family: "Typewriter";
+    src: url("Typewriter.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
+
+
+/* ---------- color palette ---------- */
+
+:root {
+    --cream: #f8f5ed;
+    --paper: #fffdf7;
+
+    --sage: #8fae91;
+    --sage-light: #e4eee4;
+
+    --blue: #d9e5ec;
+    --blue-dark: #6f8d9d;
+
+    --brown: #4b443a;
+    --brown-light: #81766a;
+
+    --orange: #d8894d;
+    --orange-light: #f2d8c1;
+
+    --line: #d8d1c5;
+}
+
+
+/* ---------- basic setup ---------- */
+
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 html {
@@ -18,15 +47,18 @@ html {
 }
 
 body {
-    font-family: "Libre Baskerville", Georgia, serif;
-    background: #f8f5ed;
-    color: #403c35;
+    margin: 0;
+    background: var(--cream);
+    color: var(--brown);
+
+    font-family: "Typewriter", "Courier New", monospace;
+
     line-height: 1.7;
+    letter-spacing: 0.02em;
 }
 
-/* =========================
-   NAVIGATION
-========================= */
+
+/* ---------- navigation ---------- */
 
 nav {
     position: fixed;
@@ -34,424 +66,469 @@ nav {
     left: 50%;
     transform: translateX(-50%);
 
+    z-index: 100;
+
     display: flex;
-    gap: 28px;
+    gap: 8px;
 
-    padding: 12px 25px;
-    background: rgba(248, 245, 237, 0.94);
+    padding: 10px 14px;
 
-    border: 1px solid #d9d2c2;
+    background: rgba(255, 253, 247, 0.92);
+    border: 1px solid var(--line);
     border-radius: 30px;
 
-    box-shadow: 0 5px 20px rgba(70, 60, 45, 0.08);
+    box-shadow: 0 5px 20px rgba(75, 68, 58, 0.08);
 
-    z-index: 100;
+    backdrop-filter: blur(8px);
 }
 
 nav a {
-    text-decoration: none;
-    color: #554d42;
-    font-size: 0.9rem;
-    font-weight: 600;
+    padding: 7px 14px;
 
-    transition: color 0.2s ease;
+    color: var(--brown);
+    text-decoration: none;
+
+    border-radius: 20px;
+
+    font-size: 0.85rem;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 nav a:hover {
-    color: #c8753d;
+    background: var(--sage-light);
+    color: var(--brown);
+
+    transform: translateY(-1px);
 }
 
 
-/* =========================
-   HERO
-========================= */
+/* ---------- hero ---------- */
 
 header {
+    position: relative;
+
     min-height: 92vh;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
     text-align: center;
 
-    padding: 100px 30px 60px;
+    padding: 120px 20px 80px;
 
-    position: relative;
+    overflow: hidden;
 }
 
 
-/* Decorative shapes */
+/* decorative circles */
 
 header::before {
     content: "";
+
     position: absolute;
 
-    width: 180px;
-    height: 180px;
+    width: 300px;
+    height: 300px;
 
-    background: #dce9dc;
+    top: 70px;
+    left: -100px;
+
+    background: var(--sage-light);
 
     border-radius: 50%;
-
-    top: 15%;
-    left: 8%;
-
-    opacity: 0.65;
 
     z-index: -1;
 }
 
 header::after {
     content: "";
+
     position: absolute;
 
-    width: 140px;
-    height: 140px;
+    width: 230px;
+    height: 230px;
 
-    background: #d9e5ec;
+    bottom: 40px;
+    right: -80px;
+
+    background: var(--blue);
 
     border-radius: 50%;
-
-    bottom: 12%;
-    right: 10%;
-
-    opacity: 0.7;
 
     z-index: -1;
 }
 
 
-/* =========================
-   PROFILE PHOTO
-========================= */
+/* ---------- profile picture ---------- */
 
 .profile-photo {
-    width: 175px;
-    height: 175px;
+    width: 145px;
+    height: 145px;
 
     object-fit: cover;
 
     border-radius: 50%;
 
-    border: 5px solid #f8f5ed;
+    border: 5px solid var(--paper);
 
     box-shadow:
-        0 8px 25px rgba(70, 60, 45, 0.15);
+        0 0 0 2px var(--sage),
+        8px 8px 0 var(--orange-light);
 
-    margin-bottom: 28px;
+    margin-bottom: 30px;
+
+    transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: rotate(-2deg) scale(1.03);
 }
 
 
-/* =========================
-   HERO TEXT
-========================= */
+/* ---------- main heading ---------- */
 
 header h1 {
-    font-family: "Ardent", Georgia, serif;
+    margin: 0;
 
-    font-size: clamp(3rem, 7vw, 5rem);
+    font-family: "Typewriter", "Courier New", monospace;
 
-    letter-spacing: 2px;
+    font-size: clamp(3rem, 9vw, 6.5rem);
 
-    color: #4b443a;
+    font-weight: normal;
 
-    margin-bottom: 15px;
+    letter-spacing: 0.08em;
+
+    line-height: 1;
+
+    text-transform: lowercase;
+
+    color: var(--brown);
 }
+
+
+/* ---------- subtitle ---------- */
 
 header p {
     max-width: 600px;
 
-    font-size: 1.15rem;
+    margin: 25px auto 30px;
 
-    color: #71695d;
+    font-size: 1rem;
+
+    color: var(--brown-light);
+
+    line-height: 1.8;
 }
 
 
-/* =========================
-   BUTTONS
-========================= */
+/* ---------- little typewriter line ---------- */
+
+header p::before {
+    content: "> ";
+
+    color: var(--orange);
+}
+
+
+/* ---------- buttons ---------- */
 
 .buttons {
     display: flex;
+
     gap: 14px;
 
-    margin-top: 30px;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    margin-top: 10px;
 }
 
 .buttons a {
+    display: inline-block;
+
+    padding: 11px 20px;
+
+    color: var(--brown);
+
     text-decoration: none;
 
-    padding: 12px 24px;
+    border: 1.5px solid var(--brown);
 
-    border-radius: 8px;
+    border-radius: 4px;
 
-    background: #8fae91;
-    color: white;
+    background: var(--paper);
 
-    font-weight: 600;
+    font-family: inherit;
 
-    transition: all 0.25s ease;
+    font-size: 0.9rem;
 
-    box-shadow: 0 4px 12px rgba(70, 90, 70, 0.15);
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.buttons a:first-child {
+    background: var(--sage-light);
+    border-color: var(--sage);
 }
 
 .buttons a:hover {
-    transform: translateY(-3px);
+    transform: translate(-2px, -2px);
 
-    background: #789a7b;
-
-    box-shadow: 0 8px 18px rgba(70, 90, 70, 0.2);
-}
-
-.buttons a:last-child {
-    background: #d9e5ec;
-
-    color: #4e6570;
-
-    box-shadow: none;
-}
-
-.buttons a:last-child:hover {
-    background: #c9dce5;
+    box-shadow: 4px 4px 0 var(--orange-light);
 }
 
 
-/* =========================
-   MAIN CONTENT
-========================= */
+/* ---------- main content ---------- */
 
 main {
-    max-width: 950px;
+    width: min(1050px, 90%);
 
-    margin: auto;
+    margin: 0 auto;
 
-    padding: 70px 30px;
+    padding-bottom: 100px;
 }
+
+
+/* ---------- sections ---------- */
 
 section {
-    margin-bottom: 120px;
+    margin: 80px 0;
+
+    padding: 55px;
+
+    background: var(--paper);
+
+    border: 1px solid var(--line);
+
+    border-radius: 8px;
+
+    box-shadow: 8px 8px 0 var(--sage-light);
 }
 
 
-/* =========================
-   SECTION HEADINGS
-========================= */
+/* ---------- section headings ---------- */
+
 h2 {
-    font-family: "Ardent", Georgia, serif;
-
-    font-size: 2.3rem;
-
-    color: #4b443a;
-
+    margin-top: 0;
     margin-bottom: 35px;
+
+    font-family: "Typewriter", "Courier New", monospace;
+
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
+
+    font-weight: normal;
+
+    text-transform: lowercase;
+
+    letter-spacing: 0.04em;
+
+    color: var(--brown);
 }
 
 
-/* Small orange accent */
+/* little line underneath headings */
 
 h2::after {
     content: "";
 
     display: block;
 
-    width: 45px;
-    height: 4px;
+    width: 65px;
+    height: 3px;
 
-    margin-top: 10px;
+    margin-top: 12px;
 
-    background: #d8894d;
+    background: var(--orange);
+}
+
+
+/* ---------- projects ---------- */
+
+.project {
+    position: relative;
+
+    margin: 25px 0;
+
+    padding: 25px 28px;
+
+    background: var(--sage-light);
+
+    border-left: 5px solid var(--sage);
+
+    border-radius: 5px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.project:nth-of-type(3) {
+    background: var(--blue);
+
+    border-left-color: var(--blue-dark);
+}
+
+.project:hover {
+    transform: translateX(5px);
+
+    box-shadow: 5px 5px 0 var(--orange-light);
+}
+
+
+/* ---------- project titles ---------- */
+
+.project h3 {
+    margin: 0 0 10px;
+
+    font-family: "Typewriter", "Courier New", monospace;
+
+    font-size: 1.4rem;
+
+    font-weight: normal;
+
+    text-transform: lowercase;
+
+    color: var(--brown);
+}
+
+.project h3::before {
+    content: "↳ ";
+
+    color: var(--orange);
+}
+
+
+/* ---------- project descriptions ---------- */
+
+.project p {
+    margin: 0;
+
+    color: var(--brown-light);
+
+    font-size: 0.95rem;
+}
+
+
+/* ---------- about section ---------- */
+
+#about {
+    background: var(--blue);
+
+    box-shadow: 8px 8px 0 var(--orange-light);
+}
+
+#about p {
+    max-width: 750px;
+
+    font-size: 1rem;
+
+    color: var(--brown);
+
+    line-height: 2;
+}
+
+
+/* ---------- links ---------- */
+
+a {
+    color: var(--blue-dark);
+}
+
+a:hover {
+    color: var(--orange);
+}
+
+
+/* ---------- selection ---------- */
+
+::selection {
+    background: var(--orange-light);
+    color: var(--brown);
+}
+
+
+/* ---------- scrollbar ---------- */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--sage);
 
     border-radius: 10px;
 }
 
 
-/* =========================
-   PROJECT CARDS
-========================= */
+/* ---------- mobile ---------- */
 
-.project {
-    background: #fffdf8;
-
-    padding: 30px;
-
-    margin-bottom: 20px;
-
-    border-radius: 14px;
-
-    border: 1px solid #ded8ca;
-
-    box-shadow:
-        0 5px 15px rgba(70, 60, 45, 0.05);
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-.project:hover {
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 12px 25px rgba(70, 60, 45, 0.1);
-}
-
-.project h3 {
-    font-family: "Ardent", Georgia, serif;
-
-    font-size: 1.5rem;
-
-    color: #587a60;
-
-    margin-bottom: 8px;
-}
-
-.project p {
-    color: #71695d;
-}
-
-
-/* =========================
-   ABOUT SECTION
-========================= */
-
-#about {
-    background: #e4eee4;
-
-    padding: 55px;
-
-    border-radius: 18px;
-
-    border: 1px solid #cbdccf;
-}
-
-#about h2 {
-    color: #4f6654;
-}
-
-#about p {
-    max-width: 680px;
-
-    color: #5f625a;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
     nav {
+        top: 10px;
+
         width: 92%;
 
         justify-content: center;
 
-        gap: 15px;
+        overflow-x: auto;
 
-        padding: 11px 15px;
+        white-space: nowrap;
     }
 
     nav a {
         font-size: 0.75rem;
+
+        padding: 6px 9px;
     }
 
     header {
-        padding-top: 110px;
-    }
+        min-height: 85vh;
 
-    header h1 {
-        font-size: 2.8rem;
-    }
-
-    header p {
-        font-size: 1rem;
+        padding: 110px 20px 60px;
     }
 
     .profile-photo {
-        width: 140px;
-        height: 140px;
+        width: 120px;
+        height: 120px;
     }
 
-    .buttons {
-        flex-direction: column;
-
-        width: 210px;
+    header h1 {
+        font-size: clamp(2.5rem, 13vw, 4rem);
     }
 
-    #about {
-        padding: 35px 25px;
+    header p {
+        font-size: 0.85rem;
     }
-    
-}
-/* =========================
-OTHER PAGES
-========================= */
 
-.page {
-max-width: 950px;
-margin: auto;
-padding: 150px 30px 80px;
-}
+    main {
+        width: 92%;
+    }
 
-.page-intro {
-text-align: center;
-margin-bottom: 100px;
-}
+    section {
+        padding: 30px 22px;
 
-.page-intro h1 {
-font-family: "Ardent", Georgia, serif;
-font-size: clamp(3rem, 7vw, 5rem);
-color: #4b443a;
-margin-bottom: 20px;
-}
+        margin: 55px 0;
+    }
 
-.page-intro p {
-max-width: 650px;
-margin: auto;
-font-size: 1.15rem;
-color: #71695d;
-}
+    h2 {
+        font-size: 1.8rem;
+    }
 
-.about-content {
-margin-bottom: 90px;
-}
-
-.about-content p {
-max-width: 750px;
-margin-bottom: 22px;
-color: #71695d;
-}
-
-/* =========================
-ACTIVE NAVIGATION
-========================= */
-
-nav a {
-position: relative;
-}
-
-nav a.active {
-color: #c8753d;
-}
-
-nav a.active::after {
-content: "";
-
-
-position: absolute;
-
-left: 50%;
-bottom: -5px;
-
-width: 5px;
-height: 5px;
-
-transform: translateX(-50%);
-
-background: #c8753d;
-border-radius: 50%;
-
-
+    .project {
+        padding: 20px;
+    }
 }
