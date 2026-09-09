@@ -613,9 +613,9 @@ a:hover {
     }
 
     .social-links {
-        position: fixed;
         top: 25px;
         right: 30px;
+        left: auto;
         z-index: 1000;
         display: flex;
         gap: 18px;
@@ -631,5 +631,6 @@ a:hover {
     .social-links a:hover {
         opacity: 0.65;
         transform: translateY(-2px);
+        text-decoration: none;
     }
 }
